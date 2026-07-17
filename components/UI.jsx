@@ -1,0 +1,133 @@
+import Link from 'next/link';
+import Reveal from './Reveal';
+import { IconArrow, IconWhatsApp } from './Icons';
+
+export const WHATSAPP = 'https://wa.me/254798700024';
+export const PHONE_DISPLAY = '0798 700 024';
+export const PHONE_TEL = 'tel:+254798700024';
+export const EMAIL = 'swiftsynchsolutions@gmail.com';
+
+/** Section heading block, optionally centered. */
+export function SectionHead({ kicker, title, sub, center = true, light = false }) {
+  return (
+    <Reveal className={`${center ? 'mx-auto text-center' : ''} max-w-2xl mb-12 md:mb-16`}>
+      <p className={light ? 'kicker-light' : 'kicker'}>{kicker}</p>
+      <h2
+        className={`mt-3 font-display text-3xl md:text-[42px] md:leading-[1.12] font-semibold tracking-tight ${
+          light ? 'text-cream' : 'text-espresso'
+        }`}
+      >
+        {title}
+      </h2>
+      {sub && (
+        <p className={`mt-5 text-[17px] leading-relaxed ${light ? 'text-cream/75' : 'text-espresso-soft'}`}>{sub}</p>
+      )}
+      <div className={`hairline mt-7 ${center ? 'mx-auto' : ''}`} />
+    </Reveal>
+  );
+}
+
+/** Text link with arrow — used under cards/sections to reach dedicated pages. */
+export function ArrowLink({ href, children, light = false }) {
+  return (
+    <Link
+      href={href}
+      className={`group inline-flex items-center gap-2 text-[15px] font-semibold ${
+        light ? 'text-gold' : 'text-gold-deep'
+      }`}
+    >
+      {children}
+      <IconArrow className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+    </Link>
+  );
+}
+
+/** Page banner used on all inner pages: photo + overlay + serif title. */
+export function PageHero({ image, kicker, title, sub }) {
+  return (
+    <section className="relative flex min-h-[46vh] items-end overflow-hidden bg-espresso md:min-h-[54vh]">
+      <div
+        className="absolute inset-0 bg-cover bg-center animate-slow-zoom"
+        style={{ backgroundImage: `url(${image})` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-espresso via-espresso/60 to-espresso/25" />
+      <div className="container-site relative z-10 pb-14 pt-36 md:pb-20">
+        <Reveal>
+          <p className="kicker-light">{kicker}</p>
+          <h1 className="mt-4 max-w-3xl font-display text-4xl font-bold tracking-tight text-cream md:text-6xl md:leading-[1.06]">
+            {title}
+          </h1>
+          {sub && <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-cream/80 md:text-lg">{sub}</p>}
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/** Checklist with gold check marks. */
+export function Checks({ items, light = false }) {
+  return (
+    <ul className="mt-7 space-y-4">
+      {items.map((item, i) => (
+        <li key={i} className="flex items-start gap-3.5">
+          <span
+            className={`mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full ${
+              light ? 'bg-gold/20 text-gold' : 'bg-gold/15 text-gold-deep'
+            }`}
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5">
+              <path d="m5 12.5 4.5 4.5L19 7.5" />
+            </svg>
+          </span>
+          <span className={`text-[15.5px] leading-relaxed ${light ? 'text-cream/80' : 'text-espresso-soft'}`}>{item}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+/** Split section: photo one side, content the other. */
+export function Split({ image, alt, flip = false, children, imageAspect = 'aspect-[4/3]' }) {
+  return (
+    <div className={`grid items-center gap-10 md:grid-cols-2 md:gap-16 ${flip ? '' : ''}`}>
+      <Reveal className={flip ? 'md:order-2' : ''}>
+        <div className={`group relative overflow-hidden rounded-[24px] shadow-lift ${imageAspect}`}>
+          <img
+            src={image}
+            alt={alt}
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 rounded-[24px] ring-1 ring-inset ring-espresso/10" />
+        </div>
+      </Reveal>
+      <Reveal className={flip ? 'md:order-1' : ''} delay={120}>
+        {children}
+      </Reveal>
+    </div>
+  );
+}
+
+/** Closing call-to-action band used across pages. */
+export function CTABand({ title = 'Ready to modernise your service?', sub = 'Get a free demo at your venue — we set everything up, you watch the first order arrive.' }) {
+  return (
+    <section className="bg-gradient-to-br from-gold via-[#d3ab61] to-gold-deep py-20 md:py-24">
+      <div className="container-site text-center">
+        <Reveal>
+          <h2 className="mx-auto max-w-2xl font-display text-3xl font-semibold tracking-tight text-espresso md:text-[42px] md:leading-[1.12]">
+            {title}
+          </h2>
+          <p className="mx-auto mt-5 max-w-xl text-[17px] text-espresso/75">{sub}</p>
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
+            <a href={WHATSAPP} target="_blank" rel="noopener" className="btn-dark">
+              <IconWhatsApp className="h-5 w-5" />
+              WhatsApp Us
+            </a>
+            <Link href="/contact" className="btn border border-espresso/70 text-espresso hover:bg-espresso/10">
+              Book a Free Demo
+            </Link>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}

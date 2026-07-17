@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cream text-espresso antialiased;
+  }
+  ::selection {
+    background: rgba(201, 161, 90, 0.35);
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-6xl px-5 md:px-8;
+  }
+  .kicker {
+    @apply text-[12px] font-semibold uppercase tracking-widest2 text-gold-deep;
+  }
+  .kicker-light {
+    @apply text-[12px] font-semibold uppercase tracking-widest2 text-gold;
+  }
+  .hairline {
+    @apply h-px w-16 bg-gold/60;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-[15px] font-semibold transition-all duration-200 hover:-translate-y-0.5;
+  }
+  .btn-gold {
+    @apply btn bg-gold text-espresso shadow-glow hover:bg-[#d4ad66];
+  }
+  .btn-dark {
+    @apply btn bg-espresso text-cream hover:bg-[#35302a];
+  }
+  .btn-outline {
+    @apply btn border border-espresso/70 text-espresso hover:bg-espresso/5;
+  }
+  .btn-outline-light {
+    @apply btn border border-cream/60 text-cream hover:bg-cream/10;
+  }
+  .card-surface {
+    @apply rounded-card bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lift;
+  }
+}
+
+/* Scroll-reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.reveal-in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Slow zoom for hero imagery */
+@keyframes slow-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+.animate-slow-zoom {
+  animation: slow-zoom 18s ease-in-out infinite alternate;
+}
