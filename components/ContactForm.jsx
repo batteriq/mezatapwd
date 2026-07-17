@@ -55,6 +55,31 @@ export default function ContactForm() {
   const inputCls =
     'w-full rounded-xl border border-espresso/20 bg-white px-4 py-3.5 text-[15px] text-espresso placeholder:text-espresso/35 outline-none transition-colors focus:border-gold';
 
+  /* Success state — the form closes and a confirmation takes its place */
+  if (status === 'sent') {
+    return (
+      <div className="flex min-h-[420px] flex-col items-center justify-center rounded-[28px] bg-white p-10 text-center shadow-card">
+        <span className="flex h-20 w-20 items-center justify-center rounded-full bg-forest/10 text-forest">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10">
+            <path d="m4.5 12.5 5 5L19.5 7" />
+          </svg>
+        </span>
+        <h3 className="mt-6 font-display text-[28px] font-semibold">Message sent!</h3>
+        <p className="mt-3 max-w-sm text-[15px] leading-relaxed text-espresso-soft">
+          Your request is in our inbox. We'll call you back the <b className="text-espresso">same day</b> —
+          keep your phone close.
+        </p>
+        <button
+          type="button"
+          onClick={() => setStatus('idle')}
+          className="mt-8 text-[14px] font-semibold text-gold-deep underline-offset-4 hover:underline"
+        >
+          Send another message
+        </button>
+      </div>
+    );
+  }
+
   return (
     <form onSubmit={onSubmit} className="rounded-[28px] bg-white p-7 shadow-card md:p-10">
       <h3 className="font-display text-[26px] font-semibold">Request your free demo</h3>
@@ -91,11 +116,6 @@ export default function ContactForm() {
           Or send via WhatsApp instead
         </button>
 
-        {status === 'sent' && (
-          <p className="rounded-xl bg-forest/10 px-4 py-3.5 text-center text-[14px] font-medium text-forest">
-            Sent! Your message is in our inbox — we'll reply the same day.
-          </p>
-        )}
         {status === 'error' && (
           <p className="rounded-xl bg-terracotta/10 px-4 py-3.5 text-center text-[14px] font-medium text-terracotta">
             That didn't go through — please use the WhatsApp button above, or call 0798 700 024.
