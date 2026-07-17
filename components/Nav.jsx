@@ -5,12 +5,12 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const LINKS = [
+  { href: '/services', label: 'Services' },
   { href: '/why-mezatap', label: 'Why MezaTap' },
   { href: '/how-it-works', label: 'How It Works' },
   { href: '/guests', label: 'For Guests' },
   { href: '/team', label: 'Your Team' },
   { href: '/payments', label: 'Payments' },
-  { href: '/features', label: 'Features' },
 ];
 
 export default function Nav() {

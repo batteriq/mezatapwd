@@ -3,8 +3,7 @@ import Reveal from '@/components/Reveal';
 import { SectionHead, ArrowLink, Checks, CTABand } from '@/components/UI';
 import {
   IconQr, IconCloche, IconCard, IconArmchair, IconBell, IconWallet, IconChart,
-  IconShield, IconPrinter, IconBuilding, IconPalette, IconReceipt, IconBed,
-  IconSignal, IconStar, IconCalendar, IconSmartphone, IconCheck,
+  IconShield, IconBuilding, IconBed, IconStar, IconCalendar, IconSmartphone, IconCheck,
 } from '@/components/Icons';
 
 const STEPS = [
@@ -21,15 +20,13 @@ const ROLES = [
   { href: '/team#owners', img: '/images/owner-hotel.jpg', icon: IconBuilding, title: 'Owners' },
 ];
 
-const FEATURES = [
-  { icon: IconReceipt, title: 'KRA eTIMS receipts', text: 'Tax-compliant receipts, automatic on every sale.' },
-  { icon: IconPrinter, title: 'Receipt printing', text: 'Prints on the thermal printer you already own.' },
-  { icon: IconBed, title: 'Charge to room', text: 'Hotel guests bill orders straight to their room.' },
-  { icon: IconBuilding, title: 'Multi-branch', text: 'Every location under one account, compared side by side.' },
-  { icon: IconPalette, title: 'Your brand, not ours', text: 'Guests see your colors and your logo throughout.' },
-  { icon: IconChart, title: 'Sales analytics', text: 'Top sellers, busy hours, trends — decisions from data.' },
-  { icon: IconShield, title: 'Serious security', text: 'Encrypted logins, role-based access, nightly backups.' },
-  { icon: IconSignal, title: 'Internet hiccup?', text: 'Service keeps flowing; everything syncs when you’re back.' },
+const SERVICES = [
+  { href: '/services#room-service', icon: IconBed, title: 'In-room dining & room charge', text: 'Hotel guests order from their room and bill it straight to the room.' },
+  { href: '/services#reservations', icon: IconCalendar, title: 'Reservations & table booking', text: 'Guests book ahead; your busiest nights stay organised.' },
+  { href: '/services#payments-suite', icon: IconWallet, title: 'Payments & reconciliation', text: 'M-Pesa, card and cash — confirmed, receipted, balanced daily.' },
+  { href: '/services#feedback', icon: IconStar, title: 'Reviews & guest feedback', text: 'Hear the truth early and build a reputation that fills tables.' },
+  { href: '/services#insights', icon: IconChart, title: 'Insights & multi-branch', text: 'The whole business on one calm dashboard, from anywhere.' },
+  { href: '/features', icon: IconShield, title: 'And the fine details', text: 'eTIMS receipts, printing, your branding, security — all handled.' },
 ];
 
 export default function Home() {
@@ -322,18 +319,43 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ FEATURES — quiet editorial list ============ */}
+      {/* ============ SERVICES — the tap leads, the suite follows ============ */}
       <section className="py-24 md:py-36">
         <div className="container-site">
           <SectionHead
-            kicker="And everything around the meal"
-            title="Small details, run properly."
-            sub="The unglamorous parts of hospitality — handled without you thinking about them."
+            kicker="Our services"
+            title="It starts with the tap. It doesn't end there."
+            sub="The tap is the star of the show — and it arrives with a full supporting cast, already inside the same platform."
           />
+
+          {/* Flagship row */}
+          <Reveal>
+            <Link
+              href="/services#ordering"
+              className="group mx-auto mb-14 flex max-w-4xl flex-col items-center gap-6 rounded-[28px] border border-gold/30 bg-gold/[0.07] px-8 py-9 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lift md:flex-row md:text-left"
+            >
+              <span className="flex h-16 w-16 flex-none items-center justify-center rounded-full bg-gold text-espresso shadow-glow">
+                <IconQr className="h-8 w-8" />
+              </span>
+              <span className="flex-1">
+                <h3 className="font-display text-[24px] font-semibold">
+                  Dine-in QR ordering — <span className="italic text-gold-deep">the main event</span>
+                </h3>
+                <p className="mt-1.5 text-[15px] leading-relaxed text-espresso-soft">
+                  Tables, poolside, rooftop — anywhere you can place a card, guests can order and pay. This is the tap everyone will talk about.
+                </p>
+              </span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 flex-none text-gold-deep transition-transform duration-200 group-hover:translate-x-1.5">
+                <path d="M4 12h16m0 0-6-6m6 6-6 6" />
+              </svg>
+            </Link>
+          </Reveal>
+
+          {/* Supporting suite */}
           <div className="mx-auto grid max-w-4xl gap-x-16 md:grid-cols-2">
-            {FEATURES.map((f, i) => (
+            {SERVICES.map((f, i) => (
               <Reveal key={f.title} delay={(i % 2) * 80}>
-                <Link href="/features" className="group flex items-start gap-5 border-b border-espresso/[0.08] py-7">
+                <Link href={f.href} className="group flex items-start gap-5 border-b border-espresso/[0.08] py-7">
                   <span className="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-gold/15 text-gold-deep transition-colors duration-300 group-hover:bg-gold group-hover:text-espresso">
                     <f.icon className="h-5 w-5" />
                   </span>
@@ -346,7 +368,7 @@ export default function Home() {
             ))}
           </div>
           <Reveal className="mt-14 text-center">
-            <ArrowLink href="/features">Explore every feature in detail</ArrowLink>
+            <ArrowLink href="/services">Explore the full service suite</ArrowLink>
           </Reveal>
         </div>
       </section>

@@ -3,6 +3,7 @@ import { IconPhone, IconMail, IconWhatsApp, IconMapPin, IconClock, IconChevronUp
 import { WHATSAPP, PHONE_DISPLAY, PHONE_TEL, EMAIL } from './UI';
 
 const EXPLORE = [
+  { href: '/services', label: 'Our Services' },
   { href: '/why-mezatap', label: 'Why MezaTap' },
   { href: '/how-it-works', label: 'How It Works' },
   { href: '/guests', label: 'For Your Guests' },
@@ -12,12 +13,12 @@ const EXPLORE = [
 ];
 
 const PLATFORM = [
-  { href: '/team#waiters', label: 'Waiter App' },
-  { href: '/team#cashiers', label: 'Cashier Command Center' },
-  { href: '/team#managers', label: 'Manager Dashboard' },
-  { href: '/team#owners', label: 'Owner Analytics' },
-  { href: '/features#etims', label: 'KRA eTIMS Receipts' },
-  { href: '/features#branding', label: 'White-Label Branding' },
+  { href: '/services#ordering', label: 'Dine-In QR Ordering' },
+  { href: '/services#room-service', label: 'In-Room Dining' },
+  { href: '/services#reservations', label: 'Reservations' },
+  { href: '/services#payments-suite', label: 'Payments & Reconciliation' },
+  { href: '/services#feedback', label: 'Reviews & Feedback' },
+  { href: '/services#insights', label: 'Insights & Multi-Branch' },
 ];
 
 export default function Footer() {
