@@ -36,8 +36,12 @@ export default function Nav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled || open ? 'bg-cream/95 shadow-card backdrop-blur-md' : 'bg-transparent'
+      className={`fixed inset-x-0 top-0 z-50 border-b backdrop-blur-xl transition-all duration-300 ${
+        open
+          ? 'border-transparent bg-cream'
+          : scrolled
+            ? 'border-espresso/[0.06] bg-cream/70'
+            : 'border-transparent bg-cream/40'
       }`}
     >
       <div className="container-site flex h-[72px] items-center justify-between">

@@ -10,7 +10,7 @@ export const EMAIL = 'swiftsynchsolutions@gmail.com';
 /** Section heading block, optionally centered. */
 export function SectionHead({ kicker, title, sub, center = true, light = false }) {
   return (
-    <Reveal className={`${center ? 'mx-auto text-center' : ''} max-w-2xl mb-12 md:mb-16`}>
+    <Reveal className={`${center ? 'mx-auto text-center' : ''} max-w-2xl mb-16 md:mb-20`}>
       <p className={light ? 'kicker-light' : 'kicker'}>{kicker}</p>
       <h2
         className={`mt-3 font-display text-3xl md:text-[42px] md:leading-[1.12] font-semibold tracking-tight ${
@@ -42,23 +42,38 @@ export function ArrowLink({ href, children, light = false }) {
   );
 }
 
-/** Page banner used on all inner pages: photo + overlay + serif title. */
+/** Page banner used on all inner pages — light, airy, arched photo, entrance animation. */
 export function PageHero({ image, kicker, title, sub }) {
   return (
-    <section className="relative flex min-h-[46vh] items-end overflow-hidden bg-espresso md:min-h-[54vh]">
-      <div
-        className="absolute inset-0 bg-cover bg-center animate-slow-zoom"
-        style={{ backgroundImage: `url(${image})` }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-espresso via-espresso/60 to-espresso/25" />
-      <div className="container-site relative z-10 pb-14 pt-36 md:pb-20">
-        <Reveal>
-          <p className="kicker-light">{kicker}</p>
-          <h1 className="mt-4 max-w-3xl font-display text-4xl font-bold tracking-tight text-cream md:text-6xl md:leading-[1.06]">
+    <section className="relative overflow-hidden bg-cream">
+      {/* Ambient gold decorations */}
+      <div className="animate-drift pointer-events-none absolute -right-40 -top-48 h-[560px] w-[560px] rounded-full bg-gold/10 blur-3xl" />
+      <div className="pointer-events-none absolute -right-24 top-16 hidden h-[430px] w-[430px] rounded-full border border-gold/25 lg:block" />
+
+      <div className="container-site relative z-10 grid items-center gap-12 pb-16 pt-32 md:grid-cols-[1.05fr_0.95fr] md:gap-16 md:pb-24 md:pt-44">
+        <div>
+          <p className="kicker enter">{kicker}</p>
+          <h1 className="enter enter-d1 mt-5 max-w-2xl font-display text-4xl font-bold tracking-tight text-espresso md:text-6xl md:leading-[1.08]">
             {title}
           </h1>
-          {sub && <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-cream/80 md:text-lg">{sub}</p>}
-        </Reveal>
+          {sub && (
+            <p className="enter enter-d2 mt-7 max-w-xl text-[17px] leading-relaxed text-espresso-soft md:text-lg">
+              {sub}
+            </p>
+          )}
+          <div className="enter enter-d3 hairline mt-10" />
+        </div>
+        <div className="enter enter-d2 relative mx-auto w-full max-w-md">
+          <div className="img-arch group relative aspect-[4/5] overflow-hidden shadow-lift">
+            <img
+              src={image}
+              alt=""
+              className="absolute inset-0 h-full w-full object-cover animate-slow-zoom"
+            />
+            <div className="img-arch absolute inset-0 ring-1 ring-inset ring-espresso/10" />
+          </div>
+          <div className="img-arch pointer-events-none absolute -inset-3 -z-10 border border-gold/30" />
+        </div>
       </div>
     </section>
   );

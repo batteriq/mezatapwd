@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       colors: {
         cream: '#FAF7F1',
-        parchment: '#F3EDE2',
+        parchment: '#F5F0E6',
         espresso: { DEFAULT: '#1F1B16', soft: '#4C463F', mute: '#7D766E' },
         gold: { DEFAULT: '#C9A15A', deep: '#A47F35', soft: 'rgba(201,161,90,0.14)' },
         forest: '#3F6B4F',
