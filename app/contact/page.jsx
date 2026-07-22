@@ -86,6 +86,9 @@ export default function ContactPage() {
                 <IconCheck className="h-5 w-5 flex-none text-gold-deep" />
                 The demo is free and stays free — you only ever pay once you decide to run your venue on MezaTap.
               </div>
+              <div className="mt-4 rounded-2xl border border-gold/30 bg-white px-5 py-4 text-[14px] leading-relaxed text-espresso-soft">
+                <span className="font-semibold text-espresso">Transparent pricing:</span> a one-time installation fee of <span className="font-semibold text-espresso">KES 8,000</span> applies at setup. Your monthly subscription is then customised around your hotel&apos;s size, operational needs and selected features.
+              </div>
             </div>
           </Reveal>
 

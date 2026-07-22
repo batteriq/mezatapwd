@@ -373,6 +373,38 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ============ PRICING ============ */}
+      <section className="bg-parchment py-24 md:py-36">
+        <div className="container-site">
+          <SectionHead
+            kicker="Simple, fair pricing"
+            title="Start with a clear setup. Scale with what you need."
+            sub="MezaTap is tailored to your hotel or venue, so you pay for the capacity and features that genuinely support your operation."
+          />
+          <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
+            <Reveal>
+              <div className="h-full rounded-[28px] bg-espresso p-8 text-cream shadow-lift md:p-10">
+                <p className="kicker-light">One-time installation</p>
+                <p className="mt-5 font-display text-5xl font-bold tracking-tight text-gold">KES 8,000</p>
+                <p className="mt-5 text-[16px] leading-relaxed text-cream/75">
+                  Charged once when we set up your venue: your menu, QR codes, staff access and payment flow.
+                </p>
+              </div>
+            </Reveal>
+            <Reveal delay={120}>
+              <div className="h-full rounded-[28px] border border-gold/30 bg-white p-8 shadow-card md:p-10">
+                <p className="kicker">Monthly subscription</p>
+                <h3 className="mt-4 font-display text-[30px] font-semibold leading-tight text-espresso">Customised for your venue</h3>
+                <p className="mt-5 text-[16px] leading-relaxed text-espresso-soft">
+                  Your monthly fee is based on your hotel&apos;s size, operational needs and selected features. You only pay for the features and capacity you need.
+                </p>
+                <Link href="/contact" className="btn-gold mt-7 !px-6 !py-3 !text-[14px]">Get your tailored quote</Link>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* ============ CTA ============ */}
       <CTABand />
     </>
