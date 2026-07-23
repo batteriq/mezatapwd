@@ -86,35 +86,29 @@ export default function Nav() {
       </div>
 
       {/* Mobile menu */}
-      <div
-        id="mobile-menu"
-        className={`fixed inset-0 top-[72px] z-40 overflow-y-auto bg-cream/95 pb-8 pt-2 backdrop-blur-xl transition-all duration-300 lg:hidden ${
-          open ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-3 opacity-0'
-        }`}
-      >
+      {open && (
+      <div id="mobile-menu" className="fixed inset-x-0 bottom-0 top-[72px] z-40 overflow-y-auto bg-cream pb-8 pt-2 lg:hidden">
         <nav className="container-site flex min-h-full flex-col pt-4" aria-label="Mobile">
           <p className="kicker mb-3">Explore MezaTap</p>
-          {LINKS.map((l, i) => (
+          {LINKS.map((l) => (
             <Link
               key={l.href}
               href={l.href}
-              className={`flex min-h-[60px] items-center justify-between border-b border-espresso/10 py-3 font-display text-[22px] font-semibold text-espresso transition-all duration-300 ${
-                open ? 'translate-x-0 opacity-100' : '-translate-x-3 opacity-0'
-              }`}
-              style={{ transitionDelay: open ? `${i * 45 + 50}ms` : '0ms' }}
+              className="flex min-h-[60px] items-center justify-between border-b border-espresso/10 py-3 font-display text-[22px] font-semibold text-espresso"
+              onClick={() => setOpen(false)}
             >
               {l.label}
-              <span className="text-lg font-normal text-gold-deep" aria-hidden="true">→</span>
+              <span className="text-lg font-normal text-gold-deep" aria-hidden="true">&rarr;</span>
             </Link>
           ))}
-          <div className={`mt-6 rounded-2xl border border-gold/30 bg-gold/10 p-4 transition-all duration-300 ${open ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'}`} style={{ transitionDelay: open ? '320ms' : '0ms' }}>
+          <div className="mt-6 rounded-2xl border border-gold/30 bg-gold/10 p-4">
             <p className="text-[11px] font-semibold uppercase tracking-widest2 text-gold-deep">One-time installation</p>
             <div className="mt-1 flex items-end justify-between gap-4">
               <p className="font-display text-2xl font-bold text-espresso">KES 8,000</p>
               <p className="max-w-[150px] text-right text-[12px] leading-relaxed text-espresso-soft">Menu, QR codes, staff access and payments included.</p>
             </div>
           </div>
-          <Link href="/contact" className="btn-gold mt-5 w-full !py-4 text-center">
+          <Link href="/contact" onClick={() => setOpen(false)} className="btn-gold mt-5 w-full !py-4 text-center">
             Book a Free Demo
           </Link>
           <p className="mt-8 text-center text-sm text-espresso-mute">
@@ -122,6 +116,7 @@ export default function Nav() {
           </p>
         </nav>
       </div>
+      )}
     </header>
   );
 }
