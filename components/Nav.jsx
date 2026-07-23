@@ -36,12 +36,12 @@ export default function Nav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 border-b backdrop-blur-xl transition-all duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
         open
           ? 'border-transparent bg-cream'
           : scrolled
-            ? 'border-espresso/[0.06] bg-cream/70'
-            : 'border-transparent bg-cream/40'
+            ? 'border-espresso/[0.06] bg-cream/70 backdrop-blur-xl'
+            : 'border-transparent bg-cream/40 backdrop-blur-xl'
       }`}
     >
       <div className="container-site flex h-[72px] items-center justify-between">
@@ -87,7 +87,7 @@ export default function Nav() {
 
       {/* Mobile menu */}
       {open && (
-      <div id="mobile-menu" className="fixed inset-x-0 bottom-0 top-[72px] z-40 overflow-y-auto bg-cream pb-8 pt-2 lg:hidden">
+      <div id="mobile-menu" className="fixed inset-x-0 bottom-0 top-[72px] z-[60] overflow-y-auto bg-cream pb-8 pt-2 shadow-[0_24px_60px_rgba(45,41,36,0.16)] lg:hidden">
         <nav className="container-site flex min-h-full flex-col pt-4" aria-label="Mobile">
           <p className="kicker mb-3">Explore MezaTap</p>
           {LINKS.map((l) => (
