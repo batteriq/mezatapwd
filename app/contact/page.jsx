@@ -1,4 +1,4 @@
-import { PageHero, WHATSAPP, PHONE_DISPLAY, PHONE_TEL, EMAIL } from '@/components/UI';
+import { PageHero, WHATSAPP, PHONE_DISPLAY, PHONE_TEL, EMAIL, SUPPORT_EMAIL } from '@/components/UI';
 import Reveal from '@/components/Reveal';
 import ContactForm from '@/components/ContactForm';
 import { IconPhone, IconMail, IconWhatsApp, IconClock, IconCheck } from '@/components/Icons';
@@ -6,7 +6,7 @@ import { IconPhone, IconMail, IconWhatsApp, IconClock, IconCheck } from '@/compo
 export const metadata = {
   title: 'Contact & Free Demo',
   description:
-    'Talk to the MezaTap team — call or WhatsApp 0798 700 024, email swiftsynchsolutions@gmail.com, or request a free demo at your venue.',
+    'Talk to the MezaTap team — call or WhatsApp 0798 700 024, email info@mezatap.co, or request a free demo at your venue.',
 };
 
 const NEXT_STEPS = [
@@ -59,6 +59,15 @@ export default function ContactPage() {
                 <div className="min-w-0">
                   <p className="text-[12px] font-semibold uppercase tracking-widest2 text-espresso-mute">Email</p>
                   <p className="mt-0.5 break-all font-display text-[19px] font-semibold">{EMAIL}</p>
+                </div>
+              </a>
+              <a href={`mailto:${SUPPORT_EMAIL}`} className="card-surface flex items-center gap-5 p-6">
+                <span className="flex h-13 w-13 flex-none items-center justify-center rounded-2xl bg-gold/15 p-3.5 text-gold-deep">
+                  <IconMail className="h-6 w-6" />
+                </span>
+                <div className="min-w-0">
+                  <p className="text-[12px] font-semibold uppercase tracking-widest2 text-espresso-mute">Support</p>
+                  <p className="mt-0.5 break-all font-display text-[19px] font-semibold">{SUPPORT_EMAIL}</p>
                 </div>
               </a>
               <div className="flex items-center gap-3 px-2 pt-1 text-[14px] text-espresso-soft">

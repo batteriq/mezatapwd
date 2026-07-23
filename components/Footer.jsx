@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { IconPhone, IconMail, IconWhatsApp, IconMapPin, IconClock, IconChevronUp } from './Icons';
-import { WHATSAPP, PHONE_DISPLAY, PHONE_TEL, EMAIL } from './UI';
+import { WHATSAPP, PHONE_DISPLAY, PHONE_TEL, EMAIL, SUPPORT_EMAIL } from './UI';
 
 const EXPLORE = [
   { href: '/services', label: 'Our Services' },
@@ -84,6 +84,12 @@ export default function Footer() {
               <a href={`mailto:${EMAIL}`} className="flex items-start gap-3 break-all transition-colors hover:text-gold">
                 <IconMail className="mt-0.5 flex-none text-gold" style={{ height: 18, width: 18 }} />
                 {EMAIL}
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${SUPPORT_EMAIL}`} className="flex items-start gap-3 break-all transition-colors hover:text-gold">
+                <IconMail className="mt-0.5 flex-none text-gold" style={{ height: 18, width: 18 }} />
+                {SUPPORT_EMAIL}
               </a>
             </li>
             <li className="flex items-start gap-3">

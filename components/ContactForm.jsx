@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { IconWhatsApp, IconMail } from './Icons';
 
-const INBOX = 'swiftsynchsolutions@gmail.com';
+const INBOX = 'info@mezatap.co';
 
 export default function ContactForm() {
   const [status, setStatus] = useState('idle'); // idle | sending | sent | error

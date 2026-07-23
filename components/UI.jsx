@@ -5,7 +5,8 @@ import { IconArrow, IconWhatsApp } from './Icons';
 export const WHATSAPP = 'https://wa.me/254798700024';
 export const PHONE_DISPLAY = '0798 700 024';
 export const PHONE_TEL = 'tel:+254798700024';
-export const EMAIL = 'swiftsynchsolutions@gmail.com';
+export const EMAIL = 'info@mezatap.co';
+export const SUPPORT_EMAIL = 'support@mezatap.co';
 
 /** Section heading block, optionally centered. */
 export function SectionHead({ kicker, title, sub, center = true, light = false }) {

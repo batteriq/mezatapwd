@@ -102,7 +102,7 @@ export default function Nav() {
             Book a Free Demo
           </Link>
           <p className="mt-8 text-center text-sm text-espresso-mute">
-            0798 700 024 · swiftsynchsolutions@gmail.com
+            0798 700 024 · info@mezatap.co
           </p>
         </nav>
       </div>
