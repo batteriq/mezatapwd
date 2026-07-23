@@ -3,8 +3,6 @@
 import { useState } from 'react';
 import { IconWhatsApp, IconMail } from './Icons';
 
-const INBOX = 'info@mezatap.co';
-
 export default function ContactForm() {
   const [status, setStatus] = useState('idle'); // idle | sending | sent | error
 
@@ -14,7 +12,9 @@ export default function ContactForm() {
       name: f.get('name'),
       venue: f.get('venue'),
       phone: f.get('phone'),
+      email: f.get('email'),
       message: f.get('message') || "I'd like a free demo at my venue.",
+      website: f.get('website'),
     };
   }
 
@@ -23,18 +23,10 @@ export default function ContactForm() {
     const v = values(e.target);
     setStatus('sending');
     try {
-      const r = await fetch(`https://formsubmit.co/ajax/${INBOX}`, {
+      const r = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          _subject: `MezaTap demo request — ${v.venue}`,
-          _template: 'table',
-          _captcha: 'false',
-          Name: v.name,
-          Venue: v.venue,
-          Phone: v.phone,
-          Message: v.message,
-        }),
+        body: JSON.stringify(v),
       });
       if (!r.ok) throw new Error('send failed');
       setStatus('sent');
@@ -102,6 +94,11 @@ export default function ContactForm() {
           Phone number
           <input name="phone" type="tel" required placeholder="07XX XXX XXX" className={inputCls} />
         </label>
+        <label className="grid gap-2 text-[13px] font-semibold text-espresso-soft">
+          Email address
+          <input name="email" type="email" required placeholder="jane@yourvenue.com" className={inputCls} />
+        </label>
+        <input name="website" type="text" tabIndex="-1" autoComplete="off" className="hidden" aria-hidden="true" />
         <label className="grid gap-2 text-[13px] font-semibold text-espresso-soft">
           Message <span className="font-normal text-espresso/40">(optional)</span>
           <textarea name="message" rows={4} placeholder="We run a restaurant with 20 tables and two floors…" className={inputCls} />
