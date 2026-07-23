@@ -52,9 +52,17 @@ export default function Home() {
               phones — no app, no waiting — while your team sees every order and every shilling, live.
             </p>
             <div className="enter enter-d3 mt-10 flex flex-wrap gap-4">
-              <Link href="/contact" className="btn-gold !px-9 !py-4 !text-base">Book a Free Demo</Link>
-              <Link href="/how-it-works" className="btn-outline !px-9 !py-4 !text-base">See How It Works</Link>
+              <Link href="/contact" className="btn-gold w-full !px-9 !py-4 !text-base sm:w-auto">Book a Free Demo</Link>
+              <Link href="/how-it-works" className="btn-outline w-full !px-9 !py-4 !text-base sm:w-auto">See How It Works</Link>
             </div>
+
+            <Link href="#pricing" className="enter enter-d4 mt-5 flex max-w-lg items-center justify-between gap-4 rounded-2xl border border-gold/30 bg-white/70 px-4 py-3.5 shadow-card backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift">
+              <span>
+                <span className="block text-[10px] font-semibold uppercase tracking-widest2 text-gold-deep">One-time installation</span>
+                <span className="mt-1 block text-[13px] text-espresso-soft">Everything needed to get your venue live.</span>
+              </span>
+              <span className="shrink-0 font-display text-[22px] font-bold text-espresso">KES 8,000</span>
+            </Link>
 
             {/* Understated stats — no boxes, just air and gold serifs */}
             <div className="enter enter-d4 mt-14 flex max-w-lg items-center justify-between border-t border-espresso/10 pt-7">
@@ -374,7 +382,7 @@ export default function Home() {
       </section>
 
       {/* ============ PRICING ============ */}
-      <section className="bg-parchment py-24 md:py-36">
+      <section id="pricing" className="scroll-mt-20 bg-parchment py-24 md:py-36">
         <div className="container-site">
           <SectionHead
             kicker="Simple, fair pricing"
@@ -383,12 +391,15 @@ export default function Home() {
           />
           <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
             <Reveal>
-              <div className="h-full rounded-[28px] bg-espresso p-8 text-cream shadow-lift md:p-10">
+              <div className="h-full rounded-[28px] bg-espresso p-7 text-cream shadow-lift sm:p-8 md:p-10">
                 <p className="kicker-light">One-time installation</p>
                 <p className="mt-5 font-display text-5xl font-bold tracking-tight text-gold">KES 8,000</p>
                 <p className="mt-5 text-[16px] leading-relaxed text-cream/75">
                   Charged once when we set up your venue: your menu, QR codes, staff access and payment flow.
                 </p>
+                <div className="mt-6 border-t border-cream/15 pt-5 text-[13px] leading-relaxed text-cream/65">
+                  No hardware to buy. No installation charge again.
+                </div>
               </div>
             </Reveal>
             <Reveal delay={120}>
