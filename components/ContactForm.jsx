@@ -58,8 +58,7 @@ export default function ContactForm() {
         </span>
         <h3 className="mt-6 font-display text-[28px] font-semibold">Message sent!</h3>
         <p className="mt-3 max-w-sm text-[15px] leading-relaxed text-espresso-soft">
-          Your request is in our inbox. We'll call you back the <b className="text-espresso">same day</b> —
-          keep your phone close.
+          Your request is in our inbox and a confirmation is on its way to your email. We'll call you back the <b className="text-espresso">same day</b> — keep your phone close.
         </p>
         <button
           type="button"
